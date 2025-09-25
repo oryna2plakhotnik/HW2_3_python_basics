@@ -7,26 +7,26 @@ This repository contains solutions to a Python assignment focused on fundamental
 This section covers various ways to work with lists in Python, including list comprehensions for concise code.
 
 ```extract_and_apply(l, p, f)```:
-A function that extracts elements from a list l that satisfy a predicate p and then applies a function f to each of those elements. The provided solution uses a single-line list comprehension for efficiency.
+Extracts elements from a list l that satisfy a predicate p and then applies a function f to each of those elements. The provided solution uses a single-line list comprehension for efficiency.
 
-#### ```concatenate(seqs)```
-A function that concatenates a list of sequences into a single flat list using a nested list comprehension.
+```concatenate(seqs)```:
+Concatenates a list of sequences into a single flat list using a nested list comprehension.
 
-#### ```transpose(matrix)```
-A function that transposes a 2D matrix (represented as a list of lists). The solution uses a nested list comprehension to swap rows and columns.
+```transpose(matrix)```:
+Transposes a 2D matrix (represented as a list of lists). The solution uses a nested list comprehension to swap rows and columns.
 
 ---
 
 ## 2. Sequence Slicing
 This section demonstrates the use of sequence slicing, a powerful Python feature for creating new sequences from existing ones.
 
-#### ```copy(seq)```
+```copy(seq)```:
 Creates a shallow copy of a sequence. The slice seq[:] is a common and idiomatic way to achieve this.
 
-#### ```all_but_last(seq)```
+```all_but_last(seq)```:
 Returns a new sequence containing all elements except the last one.
 
-#### ```every_other(seq)```
+```every_other(seq)```:
 Returns a new sequence containing every other element, starting with the first, using the optional step parameter in slicing.
 
 ---
@@ -34,10 +34,10 @@ Returns a new sequence containing every other element, starting with the first, 
 ## 3. Combinatorial Algorithms
 This section focuses on using generators to efficiently produce sequences of data without storing them all in memory at once.
 
-#### ```prefixes(seq)``` and ```suffixes(seq)```
+```prefixes(seq)``` and ```suffixes(seq)```:
 Generators that yield all prefixes and suffixes of a given sequence.
 
-#### ```slices(seq)```
+```slices(seq)```:
 A generator that yields all non-empty slices of a sequence.
 
 ---
@@ -45,16 +45,16 @@ A generator that yields all non-empty slices of a sequence.
 ## 4. Text Processing
 This section covers common string manipulation and text normalization tasks.
 
-#### ```normalize(text)```
+```normalize(text)```:
 A function that normalizes a string by converting it to lowercase and replacing all whitespace with single spaces.
 
-#### ```no_vowels(text)```
+```no_vowels(text)```:
 Removes all vowels (a, e, i, o, u, both uppercase and lowercase) from a string.
 
-#### ```digits_to_words(text)```
+```digits_to_words(text)```:
 Extracts all digits from a string and converts them into their corresponding English words.
 
-#### ```to_mixed_case(name)```
+```to_mixed_case(name)```:
 Converts a variable name from snake_case (using underscores) to camelCase (mixed case).
 
 ---
