@@ -63,7 +63,8 @@ Converts a variable name from snake_case (using underscores) to camelCase (mixed
 This section introduces the pandas library for working with DataFrames, which are tabular data structures similar to spreadsheets or SQL tables.
 
 ### 5.1 Manipulating a CSV
-This part works with a CSV file from an MTurk batch to demonstrate basic DataFrame operations.
+This part of the assignment works with ```batch.csv```, a dataset containing results from an MTurk batch. The file includes worker IDs, their answers to questions, and accept/submit times. 
+The following functions were implemented to perform basic DataFrame operations:
 
 ```read_file(file)```: Reads a CSV file into a pandas DataFrame.
 
