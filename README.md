@@ -6,7 +6,7 @@ This repository contains solutions to a Python assignment focused on fundamental
 ## 1. Working with Lists
 This section covers various ways to work with lists in Python, including list comprehensions for concise code.
 
-### 'extract_and_apply(l, p, f)'
+```extract_and_apply(l, p, f)```
 A function that extracts elements from a list l that satisfy a predicate p and then applies a function f to each of those elements. The provided solution uses a single-line list comprehension for efficiency.
 
 ### 'concatenate(seqs)'
