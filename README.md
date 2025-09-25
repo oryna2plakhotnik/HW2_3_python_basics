@@ -46,7 +46,7 @@ A generator that yields all non-empty slices of a sequence.
 This section covers common string manipulation and text normalization tasks.
 
 ```normalize(text)```:
-A function that normalizes a string by converting it to lowercase and replacing all whitespace with single spaces.
+Normalizes a string by converting it to lowercase and replacing all whitespace with single spaces.
 
 ```no_vowels(text)```:
 Removes all vowels (a, e, i, o, u, both uppercase and lowercase) from a string.
