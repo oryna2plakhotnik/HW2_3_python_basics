@@ -408,15 +408,32 @@ Hint: try to think about a worker's accept and submit times would look like if t
 """
 
 def calculated_work_time(df):
-    df['TimeBetweenTasks'] = df.groupby('WorkerId')['AcceptTime'].diff()
-    df['ActualWorkTime'] = df['SubmitTime'] - df['AcceptTime']
+    df_sorted = df.sort_values(by=['WorkerId', 'AcceptTime']).copy()
+    worker_times = {}
 
-    df['TimeBetweenTasks'] = df['TimeBetweenTasks'].fillna(0)
+    for worker_id, group in df_sorted.groupby('WorkerId'):
+        group['AcceptTime'] = pd.to_datetime(group['AcceptTime'])
+        group['SubmitTime'] = pd.to_datetime(group['SubmitTime'])
 
-    df.loc[df['TimeBetweenTasks'] < 0, 'TimeBetweenTasks'] = 0
-    df['ActualWorkTime'] = df['ActualWorkTime'] + df['TimeBetweenTasks']
+        total_time = pd.Timedelta(0)
+        current_start = group['AcceptTime'].iloc[0]
+        current_end = group['SubmitTime'].iloc[0]
+        
+        for i in range(1, len(group)):
+            next_start = group['AcceptTime'].iloc[i]
+            next_end = group['SubmitTime'].iloc[i]
 
-    return df.groupby('WorkerId')['ActualWorkTime'].sum()
+            if next_start <= current_end:
+                current_end = max(current_end, next_end)
+            else:
+                total_time += (current_end - current_start)
+                current_start = next_start
+                current_end = next_end
+        
+        total_time += (current_end - current_start)
+        worker_times[worker_id] = total_time
+
+    return pd.Series(worker_times)
 
 # actual_work_time = calculated_work_time(df)
 # print(actual_work_time)
